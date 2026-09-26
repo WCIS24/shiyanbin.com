@@ -11,11 +11,23 @@
 
 ## 当前状态（2026-09-27）
 
-- 已确认 GitHub 仓库存在、为公开仓库，浏览器已登录仓库所有者。
-- 已准备 GitHub Actions 自动发布配置。
-- GitHub Pages 启用、工作流部署、域名绑定和 HTTPS：正在配置，尚未完成验收。
-- 阿里云 DNS：当前为 0 条记录，旧 Sites 地址未提交。
-- 阿里云提示新注册域名的 NS 可能存在同步延迟；当前公网查询仍返回 NXDOMAIN，需要核对注册状态并等待正式委派。
+- GitHub Pages 已启用，Source 为 GitHub Actions。
+- 提交 `f083d1b6ba142cae9a0c8b0b7b8b510508a1c39b` 已推送到公开仓库。
+- [发布运行 #1，第 2 次尝试](https://github.com/WCIS24/shiyanbin.com/actions/runs/36271431008) 已成功；第一次运行在 Pages 启用前失败。
+- 公网测试地址：**https://wcis24.github.io/shiyanbin.com/**。
+- 已验证首页、CSS 和主图均返回 HTTP 200，内容与本地发布文件逐字节一致；HTTPS 证书验证成功。
+- 自定义域名尚未完成接入：尝试保存四条 A 记录时，阿里云明确返回 `Identity.Uncertified` / `账号未完成实名认证`。账号认证页面也显示尚未认证。
+- DNS 记录未保存成功，阿里云权威服务器查询仍没有 A 记录；www 记录尚未提交。
+- 注册局 RDAP 显示域名已注册，NS 为 `dns19.hichina.com` 和 `dns20.hichina.com`，同时处于 `client hold` 状态；公网查询返回 NXDOMAIN。此状态与账号认证阻碍分别记录，不能仅归因于 DNS 缓存。
+- 已暂时移除 GitHub 中的自定义域名绑定，保留可访问的默认测试网址。自定义域名的 HTTPS 尚未签发、未验收。
+
+## 接通自定义域名的剩余步骤
+
+1. 域名持有人在 [阿里云账号认证](https://myaccount.console.aliyun.com/cert-info) 完成本人认证。身份资料不提交到此仓库。
+2. 在阿里云域名控制台检查域名本身的实名认证/审核状态，确认 `client hold` 解除。
+3. 在 GitHub Settings → Pages 重新绑定 `shiyanbin.com`，再添加下表 DNS 记录。
+4. 核对公网 A/CNAME 解析，等待 GitHub 签发证书后启用 Enforce HTTPS。
+5. 实际访问 `https://shiyanbin.com/`、`https://www.shiyanbin.com/` 和图片资源，确认 www 跳转、页面内容和 TLS 均正常后记录最终验收。
 
 ## GitHub Pages 需要的 DNS 记录
 

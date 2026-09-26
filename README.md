@@ -2,7 +2,9 @@
 
 当前版本是纯静态的设计预览，仅含占位文案，没有个人资料、联系方式或真实作品内容。
 
-网站采用 **GitHub 仓库 + GitHub Actions + GitHub Pages + 阿里云域名解析**。网站运行在 GitHub 的托管服务上，不依赖本机开机。当前正在配置发布和域名接入，验收进度见 [部署记录](DEPLOYMENT.md)。
+网站采用 **GitHub 仓库 + GitHub Actions + GitHub Pages**。网站运行在 GitHub 的托管服务上，不依赖本机开机。
+
+测试页面已发布：[打开 HTTPS 测试页](https://wcis24.github.io/shiyanbin.com/)。阿里云自定义域名接入暂被账号实名认证阻挡，验收进度和后续步骤见 [部署记录](DEPLOYMENT.md)。
 
 ## 本地预览
 
